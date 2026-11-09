@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSCA Mathematics Question Bank: Sequences (210 Questions)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #cc342c;
+      --brand-dark: #a62a23;
+      --brand-light: #fdecea;
+      --brand-font: "Michroma", "Eurostile", "Microgramma", "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-dark: #1d4ed8;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--slate-100);
+      color: var(--slate-800);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    /* ==================== 1. HERO HEADER ==================== */
+    header.hero-banner {
+      background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+      color: white;
+      padding: 16px 20px;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-text-logo {
+      font-family: var(--brand-font);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-radius: 8px;
+      padding: 6px 14px;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-title h1 {
+      font-family: var(--brand-font);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 1.05rem;
+    }
+
+    .hero-title p {
+      font-family: var(--brand-font);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 600px) {
+      .hero-brand {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .brand-text-logo {
+        font-size: 0.85rem;
+        padding: 4px 10px;
+      }
+    }
+
+    /* ==================== 2. SLIM STICKY COMMAND BAR ==================== */
+    .sticky-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      border-bottom: 2px solid var(--brand);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .sticky-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .bar-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .topic-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      background: var(--slate-100);
+      padding: 3px;
+      border-radius: 6px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--slate-700);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 400;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s;
+      font-family: var(--brand-font);
+      letter-spacing: 0.02em;
+    }
+
+    .tab-btn:hover {
+      color: var(--brand);
+    }
+
+    .tab-btn.active {
+      background: white;
+      color: var(--brand);
+      box-shadow: inset 0 -2px 0 var(--brand), 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .tab-badge {
+      font-size: 0.68rem;
+      opacity: 0.75;
+      font-family: var(--brand-font);
+    }
+
+    .bar-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    .stat-lbl {
+      color: var(--slate-600);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      font-family: var(--brand-font);
+      letter-spacing: 0.02em;
+    }
+
+    .stat-val {
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    .timer-btn {
+      background: transparent;
+      border: none;
+      color: var(--slate-600);
+      cursor: pointer;
+      font-size: 0.75rem;
+      padding: 1px 4px;
+      border-radius: 3px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .timer-btn:hover {
+      color: var(--brand);
+      background: var(--slate-200);
+    }
+
+    .mode-switch {
+      display: flex;
+      gap: 2px;
+      background: var(--slate-100);
+      padding: 2px;
+      border-radius: 4px;
+    }
+
+    .mode-btn {
+      background: transparent;
+      border: none;
+      color: var(--slate-700);
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 3px;
+      cursor: pointer;
+      font-family: var(--brand-font);
+      letter-spacing: 0.02em;
+    }
+
+    .mode-btn.active {
+      background: white;
+      color: var(--brand);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+
+    .btn-action {
+      background: var(--slate-100);
+      border: 1px solid var(--slate-300);
+      color: var(--slate-700);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--brand-font);
+      letter-spacing: 0.02em;
+    }
+
+    .btn-action:hover {
+      background: var(--slate-200);
+    }
+
+    .btn-action.primary {
+      background: var(--brand);
+      color: white;
+      border-color: var(--brand);
+    }
+
+    .btn-action.primary:hover {
+      background: var(--brand-dark);
+    }
+
+    .toggle-grid-link {
+      background: none;
+      border: none;
+      color: var(--brand);
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 2px 4px;
+      font-family: var(--brand-font);
+    }
+
+    .bar-nav-row {
+      overflow-x: auto;
+      padding-top: 2px;
+    }
+
+    .bar-nav-row.collapsed {
+      display: none;
+    }
+
+    .jump-grid-compact {
+      display: grid;
+      grid-template-columns: repeat(25, 1fr);
+      gap: 4px;
+      min-width: 700px;
+    }
+
+    .jump-node {
+      height: 24px;
+      border-radius: 4px;
+      border: 1px solid var(--slate-200);
+      background: var(--slate-50);
+      color: var(--slate-600);
+      font-size: 0.72rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.1s;
+    }
+
+    .jump-node:hover {
+      border-color: var(--brand);
+      color: var(--brand);
+    }
+
+    .jump-node.answered {
+      background: var(--slate-200);
+      color: var(--slate-800);
+    }
+
+    .jump-node.correct {
+      background: var(--success-light);
+      border-color: var(--success);
+      color: var(--success);
+    }
+
+    .jump-node.wrong {
+      background: var(--danger-light);
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    /* ==================== 3. QUESTIONS LIST ==================== */
+    main {
+      max-width: 1200px;
+      margin: 18px auto 0;
+      padding: 0 16px;
+    }
+
+    .question-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .q-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      border: 1px solid var(--slate-200);
+      scroll-margin-top: 105px;
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .q-id {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .q-tag {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .q-text {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--slate-900);
+      margin-bottom: 14px;
+      word-break: break-word;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .options-grid.grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .opt-btn {
+      background: var(--slate-50);
+      border: 1.5px solid var(--slate-200);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      text-align: left;
+      cursor: pointer;
+      color: var(--slate-800);
+      transition: all 0.12s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary-dark);
+    }
+
+    .opt-btn.selected {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .opt-btn.correct {
+      background: var(--success-light) !important;
+      border-color: var(--success) !important;
+      color: var(--success) !important;
+      font-weight: 600;
+    }
+
+    .opt-btn.wrong {
+      background: var(--danger-light) !important;
+      border-color: var(--danger) !important;
+      color: var(--danger) !important;
+    }
+
+    .q-feedback {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      display: none;
+    }
+
+    .q-feedback.show {
+      display: block;
+    }
+
+    .q-feedback.correct {
+      background: var(--success-light);
+      color: #14532d;
+      border-left: 4px solid var(--success);
+    }
+
+    .q-feedback.wrong {
+      background: var(--danger-light);
+      color: #7f1d1d;
+      border-left: 4px solid var(--danger);
+    }
+
+    .key-section {
+      background: white;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-top: 28px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      border: 1px solid var(--slate-200);
+    }
+
+    .key-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .key-header h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    .key-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.82rem;
+    }
+
+    .key-table th, .key-table td {
+      border: 1px solid var(--slate-200);
+      padding: 6px 8px;
+      text-align: center;
+    }
+
+    .key-table th {
+      background: var(--slate-100);
+      font-weight: 700;
+      color: var(--slate-700);
+    }
+
+    .key-table td.correct-highlight {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .collapse-content {
+      display: none;
+    }
+
+    .collapse-content.open {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: var(--slate-600);
+    }
+
+    /* In-page timer dialog */
+    .timer-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(15, 23, 42, 0.62);
+    }
+    .timer-modal-backdrop[hidden] { display: none !important; }
+    .timer-modal {
+      width: min(100%, 380px);
+      padding: 24px;
+      border-radius: 14px;
+      background: #fff;
+      color: #172033;
+      box-shadow: 0 20px 70px rgba(0,0,0,.3);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    .timer-modal h2 { margin: 0 0 8px; font-size: 1.25rem; }
+    .timer-modal p { margin: 0 0 16px; color: #64748b; font-size: .92rem; }
+    .timer-modal label { display: block; margin-bottom: 6px; font-weight: 650; }
+    .timer-modal input {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font: inherit;
+      color: #0f172a;
+      background: #fff;
+    }
+    .timer-modal input:focus { outline: 3px solid rgba(37,99,235,.18); border-color: #2563eb; }
+    .timer-modal-error { min-height: 1.25em; margin-top: 7px; color: #b91c1c; font-size: .85rem; }
+    .timer-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+    .timer-modal-actions button {
+      border: 0; border-radius: 8px; padding: 10px 15px; cursor: pointer;
+      font: inherit; font-weight: 650;
+    }
+    .timer-modal-cancel { background: #e2e8f0; color: #334155; }
+    .timer-modal-save { background: #2563eb; color: #fff; }
+    .timer-modal-save:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+
+<header class="hero-banner">
+  <div class="hero-content">
+    <div class="hero-brand">
+      <div class="brand-text-logo">Crossline Edu</div>
+      <div class="hero-title">
+        <h1>CSCA Sequences Question Bank (210 Questions)</h1>
+        <p>Chinese College Preparatory / Standard Entrance Exam Syllabus</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="sticky-bar">
+  <div class="sticky-inner">
+    <div class="bar-top-row">
+      <div class="topic-tabs">
+        <button class="tab-btn active" onclick="switchTab('general_seq')" id="tab-general_seq">
+          General & Recurrence (数列通项/递推) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('geom_props')" id="tab-geom_props">
+          Geom. General Term (等比通项) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('geom_sum')" id="tab-geom_sum">
+          Geom. Sum Sₙ (等比求和) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('arith_mean')" id="tab-arith_mean">
+          Arith. Mean (等差中项) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('arith_sum')" id="tab-arith_sum">
+          Arith. Sum Sₙ (等差求和) <span class="tab-badge">30</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('geom_mean')" id="tab-geom_mean">
+          Geom. Mean (等比中项) <span class="tab-badge">30</span>
+        </button>
+      </div>
+
+      <div class="bar-controls">
+        <div class="stat-pill">
+          <span class="stat-lbl">Progress</span>
+          <span class="stat-val" id="stat-progress">0 / 50</span>
+        </div>
+
+        <div class="stat-pill" id="practice-acc-box">
+          <span class="stat-lbl">Accuracy</span>
+          <span class="stat-val" id="stat-accuracy">--</span>
+        </div>
+
+        <div class="stat-pill" id="score-box" style="display:none;">
+          <span class="stat-lbl">Score</span>
+          <span class="stat-val" id="stat-score" style="color:var(--success);">0%</span>
+        </div>
+
+        <!-- Customizable Exam Timer -->
+        <div class="stat-pill" id="timer-box" style="display:none;">
+          <span class="stat-lbl">Timer</span>
+          <span class="stat-val" id="timer-display" style="cursor:pointer; font-variant-numeric:tabular-nums;" onclick="promptTimerDuration()" title="Click to customize duration">45:00</span>
+          <button class="timer-btn" id="timer-toggle-btn" onclick="toggleTimer()" title="Play / Pause">⏸</button>
+          <button class="timer-btn" id="timer-config-btn" onclick="promptTimerDuration()" title="Set Duration (min)">⚙</button>
+        </div>
+
+        <div class="mode-switch">
+          <button class="mode-btn active" id="btn-practice" onclick="setMode('practice')">Practice</button>
+          <button class="mode-btn" id="btn-exam" onclick="setMode('exam')">Exam</button>
+        </div>
+
+        <button class="btn-action" onclick="resetCurrentTab()">Reset</button>
+        <button class="btn-action primary" id="btn-submit-exam" style="display:none;" onclick="submitExam()">Grade</button>
+        <button class="toggle-grid-link" id="toggle-grid-btn" onclick="toggleNavigatorGrid()">▲ Minimize</button>
+      </div>
+    </div>
+
+    <div class="bar-nav-row" id="bar-nav-row">
+      <div class="jump-grid-compact" id="jump-grid"></div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="question-list" id="questions-container"></section>
+
+  <section class="key-section">
+    <div class="key-header" onclick="toggleAnswerKey()">
+      <h3 id="key-title">Quick Answer Key (General & Recurrence)</h3>
+      <span id="key-arrow" style="font-size:1rem; font-weight:bold;">▼</span>
+    </div>
+    <div class="collapse-content" id="key-content">
+      <div style="overflow-x:auto;">
+        <table class="key-table" id="key-table"></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© CSCA Mathematics Question Bank · Sequences Module (210 Questions)</p>
+</footer>
+
+<script>
+/* ==================== 1. QUESTION REPOSITORIES (210 QUESTIONS) ==================== */
+
+// Topic 1: General Term / Recurrence / Summation / S_n & a_n (50 Qs)
+const RAW_GSQ = [
+  ["GSQ001","Deducing the general term from the terms of a sequence","Given the sequence {aₙ}: 1/2, −1/4, 1/8, −1/16, …, then aₙ = (　　)",["A. (−1)ⁿ/2ⁿ","B. (−1)ⁿ⁻¹/2ⁿ","C. 1/2ⁿ","D. (−1)ⁿ⁻¹/2ⁿ⁻¹"],"B"],
+  ["GSQ002","Deducing the general term from the terms of a sequence","Given the sequence {aₙ}: −3, 6, −12, 24, …, then aₙ = (　　)",["A. 3×(−2)ⁿ⁻¹","B. −3×2ⁿ⁻¹","C. 3×2ⁿ⁻¹","D. −3×(−2)ⁿ⁻¹"],"D"],
+  ["GSQ003","Term values of an explicit general term","Given the sequence {aₙ} with general term aₙ = n² + n, then a₄ = (　　)",["A. 12","B. 16","C. 20","D. 24"],"C"],
+  ["GSQ004","Properties of a sequence with an explicit general term","The sequence {aₙ} has general term aₙ = 2n − 1, then this sequence is (　　)",["A. a geometric sequence","B. an arithmetic sequence","C. a constant sequence","D. neither arithmetic nor geometric"],"B"],
+  ["GSQ005","Determining the sign of an explicit general term","The sequence {aₙ} has general term aₙ = (−1)ⁿ×2ⁿ, then the sign of a₅ is (　　)",["A. positive","B. zero","C. negative","D. cannot be determined"],"C"],
+  ["GSQ006","Term values of an explicit general term","Given aₙ = 3n² − 2, then a₃ = (　　)",["A. 25","B. 7","C. 16","D. 27"],"A"],
+  ["GSQ007","Finding the term number from an explicit general term","The sequence {aₙ} has general term aₙ = 3n − 2; if aₙ = 25, then n = (　　)",["A. 7","B. 9","C. 8","D. 10"],"B"],
+  ["GSQ008","Deducing the general term from the terms of a sequence","Given the sequence {aₙ}: 1, 3, 6, 10, …, then aₙ = (　　)",["A. n(n + 1)/2","B. n²","C. 2n − 1","D. n² + 1"],"A"],
+  ["GSQ009","Deducing the general term from the terms of a sequence","Given the sequence {aₙ}: 1, 4, 9, 16, …, then aₙ = (　　)",["A. 2n","B. n(n + 1)","C. n²","D. n² + 1"],"C"],
+  ["GSQ010","Relationship between consecutive terms of an explicit general term","The sequence {aₙ} has general term aₙ = n², then aₙ₊₁ − aₙ = (　　)",["A. 2n − 1","B. 2n + 1","C. n² + 1","D. 1"],"B"],
+  ["GSQ011","Sum of the first n terms of an explicit general term","The sequence {aₙ} has general term aₙ = 2n − 1, then S₅ = (　　)",["A. 25","B. 15","C. 20","D. 30"],"A"],
+  ["GSQ012","Sum of the first n terms of a mixed-type sequence","The sequence {aₙ} satisfies a₁ = 1, aₙ₊₁ = aₙ + 2ⁿ (n ≥ 1), then a₁ + a₂ + a₃ = (　　)",["A. 11","B. 4","C. 7","D. 8"],"A"],
+  ["GSQ013","General term of a mixed-type sequence","The sequence {aₙ} satisfies a₁ = 1, aₙ₊₁ = aₙ + 2ⁿ (n ≥ 1), then aₙ = (　　)",["A. 2ⁿ","B. 2ⁿ⁻¹","C. 2ⁿ + 1","D. 2ⁿ − 1"],"D"],
+  ["GSQ014","Sum of the first n terms of an explicit general term","The sequence {aₙ} has general term aₙ = n, then S₁₀ = (　　)",["A. 45","B. 50","C. 55","D. 60"],"C"],
+  ["GSQ015","Finding a term from a linear recursion","The sequence {aₙ} satisfies a₁ = 2, aₙ₊₁ = aₙ + 3, then a₁₀ = (　　)",["A. 26","B. 29","C. 32","D. 35"],"B"],
+  ["GSQ016","Finding a term from a linear recursion","The sequence {aₙ} satisfies a₁ = 5, aₙ₊₁ = aₙ − 2, then a₆ = (　　)",["A. −3","B. −7","C. −5","D. 5"],"C"],
+  ["GSQ017","Finding a term from a geometric-type recursion","The sequence {aₙ} satisfies a₁ = 1, aₙ₊₁ = 2aₙ, then a₆ = (　　)",["A. 32","B. 8","C. 16","D. 64"],"A"],
+  ["GSQ018","Finding a term from a sign-alternating recursion","The sequence {aₙ} satisfies a₁ = 1, aₙ₊₁ = −2aₙ, then a₅ = (　　)",["A. −16","B. 8","C. −8","D. 16"],"D"],
+  ["GSQ019","Finding a term from a sign-alternating recursion","The sequence {aₙ} satisfies a₁ = 1/3, aₙ = (−1)ⁿ×2aₙ₋₁ (n ≥ 2), then a₄ = (　　)",["A. −8/3","B. −4/3","C. 4/3","D. 8/3"],"D"],
+  ["GSQ020","Finding a term from an odd-number increment recursion","The sequence {aₙ} satisfies a₁ = 0, aₙ₊₁ = aₙ + 2n − 1, then a₄ = (　　)",["A. 4","B. 6","C. 9","D. 16"],"C"],
+  ["GSQ021","Finding a term from an increment recursion","The sequence {aₙ} satisfies a₁ = 1, aₙ₊₁ = aₙ + 2n + 1, then a₄ = (　　)",["A. 9","B. 15","C. 25","D. 16"],"D"],
+  ["GSQ022","Increment of a recursive sequence","The sequence {aₙ} satisfies aₙ₊₁ = aₙ + n (n ≥ 1), then a₅ − a₁ = (　　)",["A. 4","B. 6","C. 15","D. 10"],"D"],
+  ["GSQ023","Increment of a recursive sequence","The sequence {aₙ} satisfies aₙ₊₁ = aₙ + 2n (n ≥ 1), then a₄ − a₁ = (　　)",["A. 12","B. 6","C. 9","D. 18"],"A"],
+  ["GSQ024","General term of a recursive sequence","The sequence {aₙ} satisfies a₁ = 3, aₙ₊₁ = aₙ + 2, then aₙ = (　　)",["A. 2n − 1","B. 3n","C. n + 2","D. 2n + 1"],"D"],
+  ["GSQ025","General term of a recursive sequence","The sequence {aₙ} satisfies a₁ = 2, aₙ₊₁ = 3aₙ, then aₙ = (　　)",["A. 3ⁿ","B. 2×3ⁿ⁻¹","C. 2×3ⁿ","D. 2×n³"],"B"],
+  ["GSQ026","Reciprocal substitution recursion","The sequence {aₙ} satisfies a₁ = 1/2, aₙ₊₁ = aₙ/(1 + aₙ); let bₙ = 1/aₙ, then bₙ₊₁ − bₙ = (　　)",["A. 1","B. −1","C. aₙ","D. bₙ"],"A"],
+  ["GSQ027","Reciprocal substitution recursion","The sequence {aₙ} satisfies a₁ = 1/2, aₙ₊₁ = aₙ/(1 + aₙ), then a₄ = (　　)",["A. 1/5","B. 1/4","C. 1/6","D. 1/8"],"A"],
+  ["GSQ028","Constructing a sequence via reciprocal substitution","The sequence {aₙ} satisfies a₁ = 1/3, aₙ₊₁ = aₙ/(1 + aₙ); let bₙ = 1/aₙ, then b₄ = (　　)",["A. 4","B. 5","C. 7","D. 6"],"D"],
+  ["GSQ029","Shifted auxiliary sequence","The sequence {aₙ} satisfies a₁ = 1, aₙ₊₁ = 2aₙ + 1; let bₙ = aₙ + 1, then b₃ = (　　)",["A. 8","B. 4","C. 6","D. 7"],"A"],
+  ["GSQ030","Constructing a geometric sequence from a recursion","The sequence {aₙ} satisfies a₁ = 1, aₙ₊₁ = −2aₙ; let bₙ = |aₙ|, then b₄ = (　　)",["A. −8","B. 8","C. 4","D. 16"],"B"],
+  ["GSQ031","Finding the general term from Sₙ","The sum of the first n terms of the sequence {aₙ} is Sₙ = n², then aₙ (n ≥ 2) = (　　)",["A. n²","B. 2n + 1","C. n² − 1","D. 2n − 1"],"D"],
+  ["GSQ032","Finding the ratio of terms from Sₙ","The sum of the first n terms of the sequence {aₙ} is Sₙ = n² + n, then a₄/a₂ = (　　)",["A. 1/2","B. 2","C. 3","D. 4"],"B"],
+  ["GSQ033","Finding the general term from Sₙ","The sum of the first n terms of the sequence {aₙ} is Sₙ = 2n² − n, then aₙ (n ≥ 2) = (　　)",["A. 4n − 1","B. 2n − 1","C. 4n − 3","D. 4n + 1"],"C"],
+  ["GSQ034","Finding the general term from Sₙ","The sum of the first n terms of the sequence {aₙ} is Sₙ = n³, then aₙ (n ≥ 2) = (　　)",["A. 3n² + 3n + 1","B. n²","C. 3n² − 3n + 1","D. 3n² − n + 1"],"C"],
+  ["GSQ035","Finding the general term from Sₙ","The sum of the first n terms of the sequence {aₙ} is Sₙ = n³ + n² + n, then aₙ (n ≥ 2) = (　　)",["A. 3n² + n + 1","B. 3n² − n + 1","C. n² + n + 1","D. 3n² − 3n + 1"],"B"],
+  ["GSQ036","Finding the general term from Sₙ","The sum of the first n terms of the sequence {aₙ} is Sₙ = 2ⁿ − 1, then aₙ (n ≥ 2) = (　　)",["A. 2ⁿ","B. 2ⁿ − 1","C. 2ⁿ⁺¹","D. 2ⁿ⁻¹"],"D"],
+  ["GSQ037","Finding a specified term from Sₙ","The sum of the first n terms of the sequence {aₙ} is Sₙ = n³ + n, then a₄ = (　　)",["A. 49","B. 38","C. 64","D. 28"],"B"],
+  ["GSQ038","Finding the first term from Sₙ","The sum of the first n terms of the sequence {aₙ} is Sₙ = 3n² + 2n, then a₁ = (　　)",["A. 5","B. 3","C. 2","D. 1"],"A"],
+  ["GSQ039","Finding the relationship between terms from Sₙ","The sum of the first n terms of the sequence {aₙ} is Sₙ = n(n + 1)(n + 2)/3, then aₙ (n ≥ 2) = (　　)",["A. n²","B. n(n + 1)","C. n(n − 1)","D. n(n + 2)"],"B"],
+  ["GSQ040","Determining the type of sequence from Sₙ","The sum of the first n terms of the sequence {aₙ} is Sₙ = n², then {aₙ} is (　　)",["A. a geometric sequence","B. a constant sequence","C. an arithmetic sequence","D. cannot be determined"],"C"],
+  ["GSQ041","Telescoping summation","The sequence {aₙ} has general term aₙ = 1/[n(n + 1)], then S₅ = (　　)",["A. 5/6","B. 1/6","C. 4/5","D. 1"],"A"],
+  ["GSQ042","Telescoping summation","The sequence {aₙ} has general term aₙ = 1/[(n + 1)(n + 2)], then S₄ = (　　)",["A. 1/6","B. 1/4","C. 1/2","D. 1/3"],"D"],
+  ["GSQ043","Telescoping summation","The sequence {aₙ} has general term aₙ = 2/[(2n − 1)(2n + 1)], then S₃ = (　　)",["A. 1/7","B. 5/7","C. 1","D. 6/7"],"D"],
+  ["GSQ044","Telescoping summation with radicals","The sequence {aₙ} has general term aₙ = 1/(√n + √(n + 1)), then S₃ = (　　)",["A. 1","B. √2 − 1","C. 2 − √2","D. √3 − 1"],"A"],
+  ["GSQ045","Summation of mixed-type series","The sequence {aₙ} satisfies a₁ = 1, aₙ₊₁ = −2aₙ; let bₙ = |aₙ|, then b₁ + b₂ + b₃ + b₄ = (　　)",["A. −5","B. 10","C. 15","D. 30"],"C"],
+  ["GSQ046","Summation of a sequence built by reciprocal substitution","The sequence {aₙ} satisfies a₁ = 1/3, aₙ₊₁ = aₙ/(1 + aₙ); let bₙ = 1/aₙ, then b₁ + b₂ + … + bₙ = (　　)",["A. n(n + 1)/2","B. n(n + 5)/2","C. n(n + 3)/2","D. n(n + 6)/2"],"B"],
+  ["GSQ047","The relationship between Sₙ and aₙ","The sequence {aₙ} satisfies Sₙ = 4aₙ − 3, then the common ratio q of this sequence is (　　)",["A. 1/2","B. 2","C. 4/3","D. 3"],"C"],
+  ["GSQ048","The relationship between Sₙ and aₙ","The sequence {aₙ} satisfies Sₙ = 2aₙ − 1, then a₁ = (　　)",["A. −1","B. 1/2","C. 2","D. 1"],"D"],
+  ["GSQ049","The relationship between Sₙ and the following term","The sequence {aₙ} satisfies a₁ = 1, Sₙ = aₙ₊₁ − 1, then a₃ = (　　)",["A. 4","B. 2","C. 3","D. 8"],"A"],
+  ["GSQ050","Summation of mixed-type series","The sequence {aₙ} satisfies a₁ = 1, aₙ₊₁ = aₙ + 2n, then S₄ = (　　)",["A. 16","B. 20","C. 24","D. 40"],"C"]
+];
+
+// Topic 2: Geometric Sequence General Term & Properties (50 Qs)
+const RAW_GPS = [
+  ["GPS001","general term formula of a geometric sequence","Let the first term of the geometric sequence {aₙ} be a₁ and its common ratio be q, then aₙ＝（　　）",["A. a₁qⁿ","B. a₁qⁿ⁻¹","C. a₁＋(n−1)q","D. a₁qⁿ⁺¹"],"B"],
+  ["GPS002","definition of the common ratio of a geometric sequence","Let the common ratio of the geometric sequence {aₙ} be q, then aₙ₊₁/aₙ＝（　　）",["A. aₙ₊₁−aₙ","B. aₙ/aₙ₊₁","C. nq","D. q"],"D"],
+  ["GPS003","identifying a geometric sequence","Among the following sequences, which one is a geometric sequence?（　　）",["A. 1，3，5，7","B. 1，2，4，7","C. 1，3，9，27","D. 2，4，7，11"],"C"],
+  ["GPS004","writing the general term from the first term and the common ratio","In the geometric sequence {aₙ}, a₁＝2, q＝3, then aₙ＝（　　）",["A. 2×3ⁿ","B. 2×3ⁿ⁻¹","C. 2＋3(n−1)","D. 3×2ⁿ⁻¹"],"B"],
+  ["GPS005","direct substitution into the general term formula","In the geometric sequence {aₙ}, a₁＝3, q＝2, then a₅＝（　　）",["A. 24","B. 36","C. 48","D. 96"],"C"],
+  ["GPS006","general term formula with a negative common ratio","In the geometric sequence {aₙ}, a₁＝2, q＝−3, then a₄＝（　　）",["A. −54","B. −18","C. 18","D. 54"],"A"],
+  ["GPS007","writing the general term from the first three terms","The first three terms of a geometric sequence are 3，6，12, then its general term formula is（　　）",["A. aₙ＝3×2ⁿ","B. aₙ＝3×2ⁿ⁻¹","C. aₙ＝3n","D. aₙ＝6×2ⁿ⁻¹"],"B"],
+  ["GPS008","general term with alternating signs","The general term formula of the sequence −3，3/2，−3/4，… is（　　）",["A. aₙ＝−3×(−1/2)ⁿ⁻¹","B. aₙ＝3×(−1/2)ⁿ⁻¹","C. aₙ＝−3×(1/2)ⁿ⁻¹","D. aₙ＝−3×(−1/2)ⁿ"],"A"],
+  ["GPS009","finding the common ratio from the general term","The general term formula of the geometric sequence {aₙ} is aₙ＝5×3ⁿ⁻¹, then its common ratio is（　　）",["A. 5","B. 1/3","C. 3","D. 15"],"C"],
+  ["GPS010","finding the first term from the general term","The general term formula of the geometric sequence {aₙ} is aₙ＝4×(−2)ⁿ⁻¹, then a₁＝（　　）",["A. −2","B. 4","C. −4","D. 8"],"B"],
+  ["GPS011","finding a specified term backward from two terms","In the geometric sequence {aₙ}, a₁＝3, a₄＝24, then a₃＝（　　）",["A. 12","B. 6","C. −6","D. −12"],"A"],
+  ["GPS012","finding the common ratio backward from two terms","In the geometric sequence {aₙ}, a₁＝−24, a₄＝3, then q＝（　　）",["A. −1/2","B. 1/2","C. 2","D. −2"],"A"],
+  ["GPS013","finding a specified term backward with a positive common ratio","In the geometric sequence {aₙ}, a₁＝2, a₃＝18 and q＞0, then a₄＝（　　）",["A. 18","B. 36","C. 162","D. 54"],"D"],
+  ["GPS014","finding the common ratio backward with a positive common ratio","In the geometric sequence {aₙ}, a₁＝1, a₅＝16 and q＞0, then q＝（　　）",["A. −2","B. 4","C. 2","D. 1/2"],"C"],
+  ["GPS015","finding the first term backward with a positive common ratio","In the geometric sequence {aₙ}, a₂＝6, a₄＝54 and q＞0, then a₁＝（　　）",["A. 3","B. 2","C. 6","D. 18"],"B"],
+  ["GPS016","finding the first term backward from one term and the common ratio","In the geometric sequence {aₙ}, a₃＝12, q＝−2, then a₁＝（　　）",["A. −3","B. 6","C. 3","D. −6"],"C"],
+  ["GPS017","finding a specified term from one term and the common ratio","In the geometric sequence {aₙ}, a₂＝−3, q＝2, then a₅＝（　　）",["A. −24","B. −12","C. 12","D. 24"],"A"],
+  ["GPS018","finding the first term backward from one term and the common ratio","In the geometric sequence {aₙ}, a₅＝81, q＝3, then a₁＝（　　）",["A. 3","B. 9","C. 27","D. 1"],"D"],
+  ["GPS019","finding the first term backward from two terms","In the geometric sequence {aₙ}, a₂＝4, a₅＝32 and q＞0, then a₁＝（　　）",["A. 1","B. 4","C. 8","D. 2"],"D"],
+  ["GPS020","a geometric sequence with common ratio 1","In the geometric sequence {aₙ}, a₁＝2, q＝1, then a₂₀₂₅＝（　　）",["A. 1","B. 2025","C. 2","D. 4050"],"C"],
+  ["GPS021","sign pattern of a negative common ratio","In the geometric sequence {aₙ}, a₁＞0, q＜0, then the signs of a₁ and a₃ are（　　）",["A. Opposite","B. Cannot be determined","C. Both negative","D. The same"],"D"],
+  ["GPS022","periodicity of common ratio −1","In the geometric sequence {aₙ}, a₁＝2, q＝−1, then a₁₀₀＝（　　）",["A. 2","B. 0","C. 100","D. −2"],"D"],
+  ["GPS023","basic property of a general term with alternating signs","Given that the general term formula of the geometric sequence {aₙ} is aₙ＝−3×(−1)ⁿ⁻¹, then its common ratio is（　　）",["A. −1","B. 1","C. −3","D. 3"],"A"],
+  ["GPS024","finding the first term and the common ratio from the general term","The general term formula of the geometric sequence {aₙ} is aₙ＝3×2ⁿ, then a₁ and q are respectively（　　）",["A. 3，2","B. 3，6","C. 6，3","D. 6，2"],"D"],
+  ["GPS025","general term formula of a geometric sequence with fractions","The general term formula of the sequence 1，1/2，1/4，… is（　　）",["A. aₙ＝(1/2)ⁿ","B. aₙ＝(1/2)ⁿ⁻¹","C. aₙ＝1/n","D. aₙ＝2ⁿ⁻¹"],"B"],
+  ["GPS026","product with a negative fractional common ratio","In the geometric sequence {aₙ}, a₁＝−2, q＝−1/2, then a₁×a₃＝（　　）",["A. 1","B. −1","C. 1/2","D. 2"],"A"],
+  ["GPS027","relationship between consecutive terms","In the geometric sequence {aₙ}, aₙ＝7, then aₙ₊₁＝（　　）",["A. 7q","B. 7＋q","C. q/7","D. 7qⁿ"],"A"],
+  ["GPS028","finding the next term from two consecutive terms","In the geometric sequence {aₙ}, aₙ＝6, aₙ₊₁＝−3, then aₙ₊₂＝（　　）",["A. −3/2","B. 3","C. −3","D. 3/2"],"D"],
+  ["GPS029","monotonicity of a positive common ratio","In the geometric sequence {aₙ}, a₁＞0, q＞1, then the sequence {aₙ} is（　　）",["A. Increasing","B. Decreasing","C. A constant sequence","D. Alternating in sign"],"A"],
+  ["GPS030","sign pattern of a negative common ratio","In the geometric sequence {aₙ}, a₁＜0, q＜0, then the sign of a₂ is（　　）",["A. Negative","B. Positive","C. Zero","D. Cannot be determined"],"B"],
+  ["GPS031","product of consecutive terms","In the geometric sequence {aₙ}, a₁＝2, q＝3, then a₂×a₃＝（　　）",["A. 54","B. 72","C. 162","D. 108"],"D"],
+  ["GPS032","sum of consecutive terms with a negative common ratio","In the geometric sequence {aₙ}, a₁＝−4, q＝−1/2, then a₂＋a₃＝（　　）",["A. −1","B. 1","C. 2","D. −2"],"B"],
+  ["GPS033","finding the common ratio from two consecutive terms","In the geometric sequence {aₙ}, a₄＝16, a₅＝−8, then q＝（　　）",["A. 1/2","B. −2","C. −1/2","D. 2"],"C"],
+  ["GPS034","finding the preceding term backward from two consecutive terms","In the geometric sequence {aₙ}, a₆＝27, q＝3, then a₅＝（　　）",["A. 6","B. 18","C. 9","D. 81"],"C"],
+  ["GPS035","general term formula with a fractional common ratio","In the geometric sequence {aₙ}, a₁＝64, q＝1/2, then a₅＝（　　）",["A. 2","B. 4","C. 8","D. 16"],"B"],
+  ["GPS036","ratio of terms with a negative fractional common ratio","In the geometric sequence {aₙ}, a₁＝−2, q＝−1/2, then a₃/a₄＝（　　）",["A. 1/2","B. 2","C. −1/2","D. −2"],"D"],
+  ["GPS037","finding the first term backward with a positive fractional common ratio","In the geometric sequence {aₙ}, a₃＝9, q＝1/3, then a₁＝（　　）",["A. 27","B. 81","C. 9","D. 3"],"B"],
+  ["GPS038","sum of consecutive terms of an alternating sequence","In the geometric sequence {aₙ}, a₁＝16, q＝−1/2, then a₂＋a₄＝（　　）",["A. −10","B. −6","C. −8","D. 10"],"A"],
+  ["GPS039","finding the common ratio backward with a positive common ratio","In the geometric sequence {aₙ}, a₃＝9, a₆＝243 and q＞0, then q＝（　　）",["A. 1/3","B. 3","C. 9","D. 27"],"B"],
+  ["GPS040","finding the first term backward with a negative common ratio","In the geometric sequence {aₙ}, a₂＝−2, a₅＝16, then a₁＝（　　）",["A. −1","B. 2","C. 1","D. −2"],"C"],
+  ["GPS041","relationship between non-adjacent terms","In the geometric sequence {aₙ}, q＝3, then aₙ₊₂＝（　　）",["A. 9aₙ","B. 3aₙ","C. 6aₙ","D. 27aₙ"],"A"],
+  ["GPS042","relationship between non-adjacent terms","In the geometric sequence {aₙ}, q＝−2, then aₙ₊₃＝（　　）",["A. −2aₙ","B. 4aₙ","C. 8aₙ","D. −8aₙ"],"D"],
+  ["GPS043","ratio of non-adjacent terms","In the geometric sequence {aₙ}, q＝2, then aₙ₊₂/aₙ＝（　　）",["A. 2","B. 6","C. 8","D. 4"],"D"],
+  ["GPS044","ratio of non-adjacent terms","In the geometric sequence {aₙ}, q＝−3, then aₙ₊₃/aₙ＝（　　）",["A. −27","B. 9","C. 27","D. −9"],"A"],
+  ["GPS045","finding the index of a specified term backward","In the geometric sequence {aₙ}, a₁＝3, q＝2, if aₙ＝96, then n＝（　　）",["A. 5","B. 7","C. 6","D. 8"],"C"],
+  ["GPS046","product of two consecutive terms","In the geometric sequence {aₙ}, aₙ＝2ⁿ⁻¹, then a₅×a₆＝（　　）",["A. 256","B. 512","C. 1024","D. 64"],"B"],
+  ["GPS047","specified term with a negative common ratio","In the geometric sequence {aₙ}, a₃＝4, q＝−2, then a₆＝（　　）",["A. 32","B. 16","C. −32","D. −16"],"C"],
+  ["GPS048","product of non-adjacent terms with a negative common ratio","In the geometric sequence {aₙ}, a₁＝3, q＝−2, then a₁×a₅＝（　　）",["A. −144","B. 48","C. 96","D. 144"],"D"],
+  ["GPS049","determining basic properties from the general term","The general term formula of the geometric sequence {aₙ} is aₙ＝(−2)ⁿ, then which of the following statements is correct?（　　）",["A. a₁＝−2, q＝−2","B. a₁＝2, q＝−2","C. a₁＝−2, q＝2","D. a₂＝−4, q＝−2"],"A"],
+  ["GPS050","exponent relationship in the general term formula","In the geometric sequence {aₙ}, a₁＝2, q＝3, then a₄/a₂＝（　　）",["A. 3","B. 6","C. 9","D. 27"],"C"]
+];
+
+// Topic 3: Sum of the First n Terms of a Geometric Sequence (50 Qs)
+const RAW_GSS = [
+  ["GSS001","Sum formula for the first n terms of a geometric sequence","Given a geometric sequence {aₙ} with first term a₁ and common ratio q (q≠1), then Sₙ＝（　　）",["A. a₁(1−qⁿ)/(1−qⁿ)","B. a₁(1−qⁿ)/(1−q)","C. na₁q","D. a₁qⁿ⁻¹"],"B"],
+  ["GSS002","Sum of the first n terms when the common ratio is 1","In a geometric sequence {aₙ}, if q＝1, then Sₙ＝（　　）",["A. a₁(1−qⁿ)/(1−q)","B. aₙ","C. a₁＋aₙ","D. na₁"],"D"],
+  ["GSS003","Equivalent formulas for the sum of the first n terms","In a geometric sequence {aₙ}, given a₁＝2, q＝3, then Sₙ＝（　　）",["A. 2×3ⁿ⁻¹","B. 3ⁿ","C. 3ⁿ−1","D. (3ⁿ−1)/2"],"C"],
+  ["GSS004","Direct summation with a positive integer common ratio","In a geometric sequence {aₙ}, given a₁＝1, q＝2, then S₅＝（　　）",["A. 15","B. 31","C. 30","D. 32"],"B"],
+  ["GSS005","Partial sum and the first term","In a geometric sequence {aₙ}, given a₁＝3, q＝2, then S₄−a₁＝（　　）",["A. 21","B. 24","C. 42","D. 48"],"C"],
+  ["GSS006","Ratio of the sum of the first n terms to the first term","In a geometric sequence {aₙ}, given a₁＝2, q＝3, then S₄/a₁＝（　　）",["A. 40","B. 20","C. 39","D. 41"],"A"],
+  ["GSS007","Ratio of a partial sum to the last term","In a geometric sequence {aₙ}, given a₁＝5, q＝2, then S₃/a₃＝（　　）",["A. 5/4","B. 7/4","C. 3/2","D. 7/2"],"B"],
+  ["GSS008","Partial sum and a middle term","In a geometric sequence {aₙ}, given a₁＝4, q＝3, then S₃−a₂＝（　　）",["A. 40","B. 36","C. 48","D. 52"],"A"],
+  ["GSS009","Ratio of the sum of the first n terms for a positive fractional common ratio","In a geometric sequence {aₙ}, given a₁＝32, q＝1/2, then S₅/a₁＝（　　）",["A. 15/16","B. 31/32","C. 31/16","D. 63/16"],"C"],
+  ["GSS010","Combination of the first 2 terms for a positive fractional common ratio","In a geometric sequence {aₙ}, given a₁＝81, q＝1/3, then S₂＋a₂＝（　　）",["A. 30","B. 135","C. 36","D. 43"],"B"],
+  ["GSS011","Difference of partial sums for a fractional common ratio","In a geometric sequence {aₙ}, given a₁＝4, q＝1/2, then S₃−a₃＝（　　）",["A. 6","B. 5","C. 7","D. 8"],"A"],
+  ["GSS012","Direct summation with a negative common ratio","In a geometric sequence {aₙ}, given a₁＝1, q＝−2, then S₄＝（　　）",["A. −5","B. 5","C. −7","D. 7"],"A"],
+  ["GSS013","Ratio of the sum of the first n terms to the last term for a negative common ratio","In a geometric sequence {aₙ}, given a₁＝2, q＝−2, then S₅/a₅＝（　　）",["A. −22","B. 20","C. −20","D. 11/16"],"D"],
+  ["GSS014","Sum of the first n terms when the common ratio is −1","In a geometric sequence {aₙ}, given a₁＝3, q＝−1, then S₈＝（　　）",["A. 3","B. −3","C. 0","D. 24"],"C"],
+  ["GSS015","Ratio of partial sums for a negative common ratio","In a geometric sequence {aₙ}, given a₁＝−2, q＝−3, then S₃/a₁＝（　　）",["A. −7","B. 7","C. 5","D. −5"],"B"],
+  ["GSS016","Difference of partial sums when the common ratio is 1","In a geometric sequence {aₙ}, given a₁＝7, q＝1, then S₁₀−a₁＝（　　）",["A. 7","B. 70","C. 63","D. 77"],"C"],
+  ["GSS017","Working backward from the sum of the first n terms to find a specified term","In a geometric sequence {aₙ}, given q＝2, S₃＝14, then a₃＝（　　）",["A. 8","B. 1","C. 3","D. 4"],"A"],
+  ["GSS018","Working backward from the sum of the first n terms to find the sum of two terms","In a geometric sequence {aₙ}, given q＝3, S₃＝26, then a₁＋a₃＝（　　）",["A. 1","B. 3","C. 6","D. 20"],"D"],
+  ["GSS019","Working backward from the first term and the sum of the first n terms to find the common ratio","In a geometric sequence {aₙ}, given a₁＝2, S₄＝30, then q＝（　　）",["A. 1","B. 3","C. −2","D. 2"],"D"],
+  ["GSS020","Working backward from the sum of the first n terms to find the number of terms","In a geometric sequence {aₙ}, given a₁＝1, q＝2, if Sₙ＝63, then n＝（　　）",["A. 5","B. 7","C. 6","D. 8"],"C"],
+  ["GSS021","Ratio of adjacent sums of the first n terms","In a geometric sequence {aₙ}, given a₁＝2, q＝3, then S₅/S₄＝（　　）",["A. 3","B. 40/121","C. 121/20","D. 121/40"],"D"],
+  ["GSS022","Finding the last term from the sum of the first n terms","In a geometric sequence {aₙ}, given a₁＝32, q＝1/2, if Sₙ＝63, then aₙ＝（　　）",["A. 2","B. 4","C. 8","D. 1"],"D"],
+  ["GSS023","Judging the number of terms when the common ratio is −1","In a geometric sequence {aₙ}, given a₁＝3, q＝−1, if Sₙ＝0, then n can be（　　）",["A. 8","B. 7","C. 9","D. 11"],"A"],
+  ["GSS024","Summing from the last term and the common ratio","In a geometric sequence {aₙ}, given a₅＝48, q＝2, then S₅＝（　　）",["A. 62","B. 90","C. 96","D. 93"],"D"],
+  ["GSS025","Finding the partial sum ratio from the last term and the common ratio","In a geometric sequence {aₙ}, given a₄＝54, q＝3, then S₄/a₄＝（　　）",["A. 27/40","B. 40/27","C. 40/9","D. 80/27"],"B"],
+  ["GSS026","Finding the partial sum difference from the first and last terms","In a geometric sequence {aₙ}, given a₁＝3, a₅＝48, q＝2, then S₅−a₅＝（　　）",["A. 45","B. 18","C. 27","D. 36"],"A"],
+  ["GSS027","Summing from the first and last terms","In a geometric sequence {aₙ}, given a₁＝16, a₄＝2, q＝1/2, then S₄＝（　　）",["A. 30","B. 20","C. 28","D. 32"],"A"],
+  ["GSS028","Finding the partial sum difference from a specified term","In a geometric sequence {aₙ}, given a₃＝8, q＝2, then S₅−a₃＝（　　）",["A. 15","B. 24","C. 31","D. 54"],"D"],
+  ["GSS029","Finding the partial sum ratio from a specified term","In a geometric sequence {aₙ}, given a₄＝−8, q＝−2, then S₄/a₄＝（　　）",["A. 5/8","B. −5/8","C. 5/4","D. −5/4"],"A"],
+  ["GSS030","Finding the ratio of the partial sum to the last term from a specified term","In a geometric sequence {aₙ}, given a₃＝9, q＝1/3, then S₃/a₃＝（　　）",["A. 27","B. 13","C. 39","D. 108"],"B"],
+  ["GSS031","Combination of the sum of the first n terms and a specified term","In a geometric sequence {aₙ}, given a₁＝2, q＝3, then S₄＋a₅＝（　　）",["A. 80","B. 162","C. 322","D. 242"],"D"],
+  ["GSS032","Sum of two segments of terms","In a geometric sequence {aₙ}, given a₁＝3, q＝2, then S₅−S₃＝（　　）",["A. 36","B. 72","C. 60","D. 84"],"B"],
+  ["GSS033","Ratio of two sums of the first n terms","In a geometric sequence {aₙ}, given a₁＝2, q＝3, then S₄/S₂＝（　　）",["A. 24","B. 54","C. 10","D. 78"],"C"],
+  ["GSS034","Partial sum and a specified term","In a geometric sequence {aₙ}, given a₁＝2, q＝2, then S₄−a₄＝（　　）",["A. 16","B. 28","C. 14","D. 30"],"C"],
+  ["GSS035","Ratio of the partial sum to the sum of the first and last terms","In a geometric sequence {aₙ}, given a₁＝3, q＝2, then S₄/(a₁＋a₄)＝（　　）",["A. 3/5","B. 5/3","C. 8/15","D. 15/4"],"B"],
+  ["GSS036","Sum of adjacent sums of the first n terms","In a geometric sequence {aₙ}, given a₁＝4, q＝3, then S₃＋S₂＝（　　）",["A. 36","B. 52","C. 64","D. 68"],"D"],
+  ["GSS037","Ratio of two sums of the first n terms","In a geometric sequence {aₙ}, given a₁＝1, q＝2, then S₅/S₃＝（　　）",["A. 7/31","B. 31/7","C. 24/7","D. 7"],"B"],
+  ["GSS038","Difference of adjacent sums of the first n terms","In a geometric sequence {aₙ}, given a₁＝1, q＝2, then S₆−S₅＝（　　）",["A. 32","B. 21","C. 63","D. 84"],"A"],
+  ["GSS039","Sum of two segments of terms for a negative common ratio","In a geometric sequence {aₙ}, given a₁＝1, q＝−2, then S₄−S₂＝（　　）",["A. 10","B. −4","C. −6","D. 6"],"B"],
+  ["GSS040","Direct summation with a negative common ratio","In a geometric sequence {aₙ}, given a₁＝1, q＝−2, then S₅＝（　　）",["A. −3","B. 5","C. 11","D. −5"],"C"],
+  ["GSS041","Equivalent transformation of the summation formula","In a geometric sequence {aₙ}, given q≠1, which of the following equals Sₙ＝a₁(qⁿ−1)/(q−1)?（　　）",["A. a₁(1−qⁿ)/(1−q)","B. a₁(1＋qⁿ)/(1＋q)","C. a₁qⁿ","D. na₁"],"A"],
+  ["GSS042","Combination of sums of the first n terms","In a geometric sequence {aₙ}, given a₁＝2, q＝2, then S₃＋S₄＝（　　）",["A. 42","B. 46","C. 58","D. 44"],"D"],
+  ["GSS043","Difference ratio of two sums of the first n terms","In a geometric sequence {aₙ}, given a₁＝1, q＝2, then (S₆−S₃)/S₃＝（　　）",["A. 16","B. 31","C. 64","D. 8"],"D"],
+  ["GSS044","Finding the first term from the sum of the first n terms","In a geometric sequence {aₙ}, given q＝1/2, S₄＝15, then a₁＝（　　）",["A. 8","B. 4","C. 12","D. 16"],"A"],
+  ["GSS045","Given a relationship between Sₙ and a subsequent term","A geometric sequence {aₙ} satisfies Sₙ＝2aₙ₊₁−2（n＝1，2，…），then a₁＝（　　）",["A. 2","B. 1/2","C. 1","D. 3"],"C"],
+  ["GSS046","Given a relationship between Sₙ and the corresponding term","A geometric sequence {aₙ} satisfies Sₙ＝2aₙ−2（n＝1，2，…），then q＝（　　）",["A. 1/2","B. 2","C. 3/2","D. 3"],"B"],
+  ["GSS047","Given a relationship between Sₙ and a subsequent term","A geometric sequence {aₙ} satisfies Sₙ＝3aₙ₊₁−3（n＝1，2，…），then S₂＝（　　）",["A. 2","B. 5/2","C. 7/3","D. 3"],"C"],
+  ["GSS048","Finding the first term from the sum of the first n terms and the common ratio","In a geometric sequence {aₙ}, given q＝−2, S₃＝3, then a₁＝（　　）",["A. −1","B. 3","C. −3","D. 1"],"D"],
+  ["GSS049","Difference of partial sums for a negative fractional common ratio","In a geometric sequence {aₙ}, given a₁＝8, q＝−1/2, then S₄−a₄＝（　　）",["A. 6","B. 3","C. 5","D. 15/2"],"A"],
+  ["GSS050","Linear combination of sums of the first n terms","In a geometric sequence {aₙ}, given a₁＝1, q＝2, then 2S₃−S₄＝（　　）",["A. 1","B. 7","C. −1","D. 29"],"C"]
+];
+
+// Topic 4: Arithmetic Mean (50 Qs)
+const RAW_APM = [
+  ["APM001","Definition of the arithmetic mean (of an arithmetic sequence)","If b is the arithmetic mean of a and c, then b = （　　）",["A. a＋c","B. (a＋c)/2","C. a−c","D. ac"],"B"],
+  ["APM002","Equivalent relationship of the arithmetic mean","If a, b, c form an arithmetic sequence, then the correct equality is （　　）",["A. a+b＝2c","B. a−c＝2b","C. ac＝b²","D. a＋c＝2b"],"D"],
+  ["APM003","Reverse identification of an arithmetic mean","Among the following pairs of numbers, 6 is the arithmetic mean of （　　）",["A. 1 and 6","B. 6 and 9","C. 3 and 9","D. 3 and 6"],"C"],
+  ["APM004","Arithmetic mean of positive and negative numbers","The arithmetic mean of −4 and 8 is （　　）",["A. −2","B. 2","C. 4","D. 6"],"B"],
+  ["APM005","Arithmetic mean of fractions","The arithmetic mean of 2/3 and 4/3 is （　　）",["A. 1/3","B. 2","C. 1","D. 2/3"],"C"],
+  ["APM006","Recovering an endpoint term from the arithmetic mean","If the arithmetic mean of x and 1/2 is 1, then x = （　　）",["A. 3/2","B. 1/2","C. 1","D. 2"],"A"],
+  ["APM007","Arithmetic mean of conjugate radicals","The arithmetic mean of 2−√3 and 2＋√3 is （　　）",["A. √3","B. 2","C. −√3","D. 4"],"B"],
+  ["APM008","Arithmetic mean of like radicals","The arithmetic mean of √2 and 3√2 is （　　）",["A. 2√2","B. √2","C. 3√2","D. 4√2"],"A"],
+  ["APM009","Recovering a radical endpoint term from the arithmetic mean","If the arithmetic mean of 3√5 and x is 4√5, then x = （　　）",["A. 3√5","B. 4√5","C. 5√5","D. 8√5"],"C"],
+  ["APM010","Arithmetic mean of expressions containing letters","The arithmetic mean of x−2 and x＋6 is （　　）",["A. x−4","B. x＋2","C. x＋4","D. 2x＋4"],"B"],
+  ["APM011","Recovering an algebraic endpoint term from the arithmetic mean","If the arithmetic mean of 2x−1 and m is 3x＋1, then m = （　　）",["A. 4x＋3","B. 2x＋1","C. 3x−1","D. 6x＋2"],"A"],
+  ["APM012","Arithmetic mean of expressions containing letters","The arithmetic mean of a−3 and a＋5 is （　　）",["A. a＋1","B. a−1","C. a＋2","D. 2a＋2"],"A"],
+  ["APM013","Arithmetic mean of expressions containing letters","The arithmetic mean of x²−1 and x²＋5 is （　　）",["A. x²−2","B. x²＋4","C. 2x²＋4","D. x²＋2"],"D"],
+  ["APM014","Finding the mean when three terms form an arithmetic sequence","If −1, x, 15 form an arithmetic sequence, then x = （　　）",["A. 5","B. 8","C. 7","D. 14"],"C"],
+  ["APM015","Finding the mean when three terms form an arithmetic sequence","If 4, x, 10 form an arithmetic sequence, then x = （　　）",["A. 6","B. 7","C. 8","D. 14"],"B"],
+  ["APM016","Recovering an endpoint term when three fractional terms form an arithmetic sequence","If x, 2/5, 8/5 form an arithmetic sequence, then x = （　　）",["A. −2/5","B. 4/5","C. −4/5","D. 2/5"],"C"],
+  ["APM017","Finding the mean when three terms form an arithmetic sequence","If 1−√2, x, 1＋√2 form an arithmetic sequence, then x = （　　）",["A. 1","B. √2","C. −√2","D. 2"],"A"],
+  ["APM018","Arithmetic mean of expressions containing letters","If 3x−1, y, 5x＋7 form an arithmetic sequence, then y = （　　）",["A. 3x＋3","B. 4x−3","C. 8x＋6","D. 4x＋3"],"D"],
+  ["APM019","Linear relationship of arithmetic means","If x−1, 3, y＋5 form an arithmetic sequence, then x＋y = （　　）",["A. −2","B. 4","C. 6","D. 2"],"D"],
+  ["APM020","Relationship between the arithmetic mean and the endpoint terms","If a, 5, c form an arithmetic sequence, and a−c = 8, then a = （　　）",["A. 1","B. 5","C. 9","D. 13"],"C"],
+  ["APM021","Recovering an endpoint term from the arithmetic mean","If the arithmetic mean of 2 and x is 8, then x = （　　）",["A. 6","B. 10","C. 12","D. 14"],"D"],
+  ["APM022","Finding the common difference from the arithmetic mean","If −3, 2, x form an arithmetic sequence, then the common difference is （　　）",["A. −5","B. 2","C. 7","D. 5"],"D"],
+  ["APM023","Three radical terms forming an arithmetic sequence","If √3, x, 5√3 form an arithmetic sequence, then x = （　　）",["A. 3√3","B. 2√3","C. 4√3","D. 6√3"],"A"],
+  ["APM024","Three fractional terms forming an arithmetic sequence","If 1/3, x, 7/3 form an arithmetic sequence, then x−1/3 = （　　）",["A. 1/3","B. 2/3","C. 4/3","D. 1"],"D"],
+  ["APM025","Recovering the left endpoint term from the mean","If x, 4, 10 form an arithmetic sequence, then x = （　　）",["A. −6","B. −2","C. 2","D. 6"],"B"],
+  ["APM026","Finding the common difference from the arithmetic mean","If x, −1, 5 form an arithmetic sequence, then the common difference is （　　）",["A. 6","B. −6","C. −3","D. 3"],"A"],
+  ["APM027","Three terms containing letters forming an arithmetic sequence","If x＋2, 5, 2x−1 form an arithmetic sequence, then x = （　　）",["A. 3","B. 2","C. 4","D. 5"],"A"],
+  ["APM028","Three terms containing letters forming an arithmetic sequence","If x−1, 2x＋1, 7 form an arithmetic sequence, then x = （　　）",["A. 1","B. 2","C. 5/3","D. 4/3"],"D"],
+  ["APM029","Recovering the right endpoint term from the mean","If 1, 5, x form an arithmetic sequence, then x = （　　）",["A. 9","B. 5","C. 7","D. 11"],"A"],
+  ["APM030","Three terms containing letters forming an arithmetic sequence","If 2x−1, 3x＋2, 5x−4 form an arithmetic sequence, then x = （　　）",["A. 7","B. 9","C. 8","D. 10"],"B"],
+  ["APM031","Identifying an arithmetic mean","Among the following groups of three numbers, the one in which the second number is the arithmetic mean of the other two is （　　）",["A. 1, 2, 4","B. 3, 5, 8","C. −1, 0, 2","D. 2, 7, 12"],"D"],
+  ["APM032","Sum relationship of arithmetic means","If the arithmetic mean of p and q is 7, then p＋q = （　　）",["A. 7","B. 14","C. 21","D. 49"],"B"],
+  ["APM033","Three terms containing letters forming an arithmetic sequence","If 3x−2, x＋6, 14 form an arithmetic sequence, then x = （　　）",["A. −2","B. 2","C. 0","D. 4"],"C"],
+  ["APM034","Proportional relationship of arithmetic means","If b is the arithmetic mean of a and c, and a = 3c, then b = （　　）",["A. c","B. 3c","C. 2c","D. 4c"],"C"],
+  ["APM035","Difference relationship of arithmetic means","If a, b, c form an arithmetic sequence, then a−b = （　　）",["A. c−b","B. b−c","C. a−c","D. 0"],"B"],
+  ["APM036","Zero-sum property of arithmetic means","If a, b, c form an arithmetic sequence, and a＋c = 0, then b = （　　）",["A. a","B. c","C. Cannot be determined","D. 0"],"D"],
+  ["APM037","Arithmetic mean and the difference of the endpoint terms","If a, b, c form an arithmetic sequence, and a＋c = 2, a−c = 8, then a = （　　）",["A. 4","B. 5","C. 1","D. −3"],"B"],
+  ["APM038","Relationship between the arithmetic mean and the endpoint terms","If 11 is the arithmetic mean of 5 and x, then x = （　　）",["A. 17","B. 11","C. 16","D. 22"],"A"],
+  ["APM039","Arithmetic mean of radicals","The arithmetic mean of √2−1 and √2＋3 is （　　）",["A. √2−2","B. √2＋1","C. √2＋2","D. 2√2＋2"],"B"],
+  ["APM040","Arithmetic mean of decimals","The arithmetic mean of 0.3 and 0.9 is （　　）",["A. 0.3","B. 0.5","C. 0.6","D. 1.2"],"C"],
+  ["APM041","Arithmetic mean of negative fractions","The arithmetic mean of −5/2 and 3/2 is （　　）",["A. −1/2","B. 1/2","C. −1","D. −4"],"A"],
+  ["APM042","Three terms containing letters forming an arithmetic sequence","If m＋n, m＋3n, x form an arithmetic sequence, then x = （　　）",["A. m＋4n","B. 2m＋4n","C. m＋2n","D. m＋5n"],"D"],
+  ["APM043","Arithmetic mean of expressions containing letters","The arithmetic mean of 2a−b and 4a＋3b is （　　）",["A. 2a＋b","B. 3a−b","C. 6a＋2b","D. 3a＋b"],"D"],
+  ["APM044","Three terms containing letters forming an arithmetic sequence","If x, x＋2, 3x−2 form an arithmetic sequence, then x = （　　）",["A. 3","B. 1","C. 2","D. 4"],"A"],
+  ["APM045","Sum of three terms involving the arithmetic mean","If x＋1, 5, 2x−2 form an arithmetic sequence, then the sum of these three terms is （　　）",["A. 11","B. 14","C. 15","D. 16"],"C"],
+  ["APM046","Finding the mean from the two endpoint terms","If a, b, c form an arithmetic sequence, and a = 2, c = 8, then b = （　　）",["A. 4","B. 5","C. 6","D. 10"],"B"],
+  ["APM047","Finding the left endpoint term from the mean and the right endpoint term","If a, b, c form an arithmetic sequence, and b = 4, c = 10, then a = （　　）",["A. −6","B. 2","C. −2","D. 6"],"C"],
+  ["APM048","Finding the right endpoint term from the left endpoint term and the mean","If a, b, c form an arithmetic sequence, and a = 7, b = 3, then c = （　　）",["A. 1","B. −3","C. 11","D. −1"],"D"],
+  ["APM049","Sum of three terms and the arithmetic mean","If a, b, c form an arithmetic sequence, and a＋b＋c = 21, then b = （　　）",["A. 7","B. 6","C. 8","D. 21"],"A"],
+  ["APM050","Combined short chain of arithmetic means","If a, b, c form an arithmetic sequence, and a＋2b＋c = 20, then b = （　　）",["A. 4","B. 6","C. 5","D. 10"],"C"]
+];
+
+// Topic 5: Arithmetic Sequence Sum S_n (30 Qs)
+const RAW_ASS = [
+  ["ASS001","Sum formula for the first n terms of an arithmetic sequence","The sum of the first n terms of the arithmetic sequence {aₙ} is Sₙ, then Sₙ＝（　　）",["A. a₁＋aₙ","B. n(a₁＋aₙ)/2","C. n(a₁＋aₙ)","D. n(a₁−aₙ)/2"],"B"],
+  ["ASS002","Sum formula for the first n terms of an arithmetic sequence","In the arithmetic sequence {aₙ}, the first term is a₁ and the common difference is d, then Sₙ＝（　　）",["A. n[a₁＋nd]/2","B. n[2a₁＋nd]/2","C. n[2a₁−(n−1)d]/2","D. n[2a₁＋(n−1)d]/2"],"D"],
+  ["ASS003","Direct calculation of the sum of the first n terms","In the arithmetic sequence {aₙ}, a₁＝1, d＝2, then S₁₀＝（　　）",["A. 90","B. 110","C. 100","D. 120"],"C"],
+  ["ASS004","Average of the first n terms","In the arithmetic sequence {aₙ}, a₁＝3, d＝3, then the average of the first 12 terms is（　　）",["A. 18","B. 39/2","C. 21","D. 36"],"B"],
+  ["ASS005","Sum using the first and last terms","In the arithmetic sequence {aₙ}, a₁＝4, a₂₀＝42, then S₂₀＝（　　）",["A. 420","B. 440","C. 460","D. 480"],"C"],
+  ["ASS006","Direct calculation of the sum of the first n terms","In the arithmetic sequence {aₙ}, a₁＝−2, d＝4, then S₁₅＝（　　）",["A. 390","B. 360","C. 420","D. 450"],"A"],
+  ["ASS007","Direct calculation of the sum of the first n terms","In the arithmetic sequence {aₙ}, a₁＝5, d＝−1, then S₈＝（　　）",["A. 8","B. 12","C. 16","D. 20"],"B"],
+  ["ASS008","Sum of the first n terms with fractional terms","In the arithmetic sequence {aₙ}, a₁＝1/2, d＝1/2, then S₆＝（　　）",["A. 21/2","B. 9","C. 12","D. 15/2"],"A"],
+  ["ASS009","Sum of the first n terms with radical terms","In the arithmetic sequence {aₙ}, a₁＝√2, d＝√2, then S₅＝（　　）",["A. 10√2","B. 12√2","C. 15√2","D. 20√2"],"C"],
+  ["ASS010","Sum using the first and last terms","In the arithmetic sequence {aₙ}, a₁＝7, a₁₆＝37, then S₁₆＝（　　）",["A. 320","B. 352","C. 384","D. 400"],"B"],
+  ["ASS011","Finding the sum given one term and the common difference","In the arithmetic sequence {aₙ}, a₃＝5, d＝2, then S₁₀＝（　　）",["A. 110","B. 100","C. 120","D. 130"],"A"],
+  ["ASS012","Finding the sum given one term and the common difference","In the arithmetic sequence {aₙ}, a₅＝9, d＝2, then S₈＝（　　）",["A. 48","B. 40","C. 56","D. 64"],"D"],
+  ["ASS013","Finding the sum of the first n terms given two terms","In the arithmetic sequence {aₙ}, a₄＝12, a₁₀＝30, then S₁₃＝（　　）",["A. 234","B. 252","C. 294","D. 273"],"D"],
+  ["ASS014","Finding the sum of the first n terms given two terms","In the arithmetic sequence {aₙ}, a₂＝5, a₈＝23, then S₉＝（　　）",["A. 108","B. 117","C. 126","D. 135"],"C"],
+  ["ASS015","Finding the sum given the middle term","In the arithmetic sequence {aₙ}, a₇＝10, then S₁₃＝（　　）",["A. 110","B. 130","C. 120","D. 140"],"B"],
+  ["ASS016","Property of the sum of an odd number of terms","In the arithmetic sequence {aₙ}, S₉＝（　　）",["A. 9a₄","B. 9a₆","C. 9a₅","D. 5a₉"],"C"],
+  ["ASS017","Finding the sum of the first n terms using the sum of the first and last terms","In the arithmetic sequence {aₙ}, a₁＋a₁₃＝16, then S₁₃＝（　　）",["A. 104","B. 91","C. 96","D. 112"],"A"],
+  ["ASS018","Property of the sum of an odd number of terms","In the arithmetic sequence {aₙ}, a₅＝−3, then S₉＝（　　）",["A. −24","B. −18","C. 27","D. −27"],"D"],
+  ["ASS019","Sum of consecutive natural numbers","1＋3＋5＋…＋21＝（　　）",["A. 100","B. 110","C. 132","D. 121"],"D"],
+  ["ASS020","Relationship involving the sum of the first and last terms","In the arithmetic sequence {aₙ}, a₁＋a₂₀＝30, then S₂₀＝（　　）",["A. 150","B. 330","C. 300","D. 600"],"C"],
+  ["ASS021","Finding the sum of the first n terms using the sum of equidistant terms","In the arithmetic sequence {aₙ}, a₃＋a₁₃＝20, then S₁₅＝（　　）",["A. 120","B. 135","C. 165","D. 150"],"D"],
+  ["ASS022","Finding the sum of the first n terms using the sum of equidistant terms","In the arithmetic sequence {aₙ}, a₄＋a₁₀＝18, then S₁₃＝（　　）",["A. 104","B. 126","C. 130","D. 117"],"D"],
+  ["ASS023","Finding the sum of the first n terms using the sum of equidistant terms","In the arithmetic sequence {aₙ}, a₂＋a₈＝16, then S₉＝（　　）",["A. 72","B. 64","C. 80","D. 81"],"A"],
+  ["ASS024","Difference between the sum of equidistant terms and the sum of the first n terms","In the arithmetic sequence {aₙ}, a₅＋a₉＝30, then S₁₃−a₇＝（　　）",["A. 165","B. 195","C. 210","D. 180"],"D"],
+  ["ASS025","Finding the sum of the first n terms using three symmetric terms","In the arithmetic sequence {aₙ}, a₃＋a₇＋a₁₁＝24, then S₁₃＝（　　）",["A. 96","B. 104","C. 112","D. 120"],"B"],
+  ["ASS026","Finding the sum of the first n terms using weighted symmetric terms","In the arithmetic sequence {aₙ}, 3(a₃＋a₇)＋2a₅＝32, then S₉＝（　　）",["A. 36","B. 32","C. 40","D. 48"],"A"],
+  ["ASS027","Finding the sum of the first n terms using weighted symmetric terms","In the arithmetic sequence {aₙ}, 2(a₃＋a₁₁)＋(a₅＋a₇＋a₉)＝56, then S₁₃＝（　　）",["A. 104","B. 91","C. 98","D. 112"],"A"],
+  ["ASS028","Finding the last term from the sum of the first n terms","In the arithmetic sequence {aₙ}, S₁₀＝100, a₁＝3, then a₁₀＝（　　）",["A. 13","B. 20","C. 23","D. 17"],"D"],
+  ["ASS029","Finding the first term from the sum of the first n terms","In the arithmetic sequence {aₙ}, S₁₅＝120, d＝1, then a₁＝（　　）",["A. 1","B. 0","C. 2","D. 8"],"A"],
+  ["ASS030","Finding the first term from the sum of the first n terms","In the arithmetic sequence {aₙ}, S₁₂＝150, a₁₂＝20, then a₁＝（　　）",["A. 4","B. 5","C. 6","D. 10"],"B"]
+];
+
+// Topic 6: Geometric Mean (30 Qs)
+const RAW_GPM = [
+  ["GPM001","definition of the geometric mean","If b is the geometric mean of a and c, and ac＞0, then b＝（　　）",["A. √(ac)","B. ±√(ac)","C. ac","D. (a＋c)/2"],"B"],
+  ["GPM002","equivalence relation for the geometric mean","If a，b，c form a geometric sequence and all terms are nonzero, then which of the following equations is correct（　　）",["A. 2b＝a＋c","B. a＋c＝b","C. b＝ac","D. b²＝ac"],"D"],
+  ["GPM003","geometric mean of integers","The geometric mean of 2 and 18 is（　　）",["A. 6","B. ±3","C. ±6","D. ±9"],"C"],
+  ["GPM004","finding the geometric mean from the product of the end terms","If a，b，c form a geometric sequence, and ac＝100, then b＝（　　）",["A. 10","B. ±10","C. ±5","D. 100"],"B"],
+  ["GPM005","the number of geometric means","The number of real geometric means between 4 and 9 is（　　）",["A. 0","B. 1","C. 2","D. 3"],"C"],
+  ["GPM006","product of the end terms and the square of the middle term","If a，b，c form a geometric sequence, and a＝8，c＝18, then b²＝（　　）",["A. 144","B. 12","C. ±12","D. 72"],"A"],
+  ["GPM007","geometric mean of fractional end terms","The geometric mean of 1/2 and 8 is（　　）",["A. 2","B. ±2","C. ±4","D. ±1"],"B"],
+  ["GPM008","finding an end term from the middle term","If 3/4，b，c form a geometric sequence, and b＝3, then c＝（　　）",["A. 12","B. 3","C. 9","D. 16"],"A"],
+  ["GPM009","geometric mean of radical end terms","The geometric mean of 2√2 and 8√2 is（　　）",["A. 4√2","B. ±8","C. ±4√2","D. ±2√2"],"C"],
+  ["GPM010","geometric mean of conjugate radical end terms","The geometric mean of 2−√3 and 2＋√3 is（　　）",["A. 1","B. ±1","C. ±√3","D. ±2"],"B"],
+  ["GPM011","square of the middle term with negative end terms","If −4，b，−9 form a geometric sequence, then b²＝（　　）",["A. 36","B. 6","C. ±6","D. −36"],"A"],
+  ["GPM012","positive geometric mean","If b is the geometric mean of 4 and 25, and b＞0, then b＝（　　）",["A. 10","B. −10","C. 5","D. −5"],"A"],
+  ["GPM013","negative geometric mean","If b is the geometric mean of 4 and 25, and b＜0, then b＝（　　）",["A. 10","B. 5","C. −5","D. −10"],"D"],
+  ["GPM014","finding an end term from two adjacent terms","If 2，6，c form a geometric sequence, then c＝（　　）",["A. 12","B. 16","C. 18","D. 24"],"C"],
+  ["GPM015","finding an end term from two adjacent terms","If a，−6，18 form a geometric sequence, then a＝（　　）",["A. −2","B. 2","C. −6","D. 6"],"B"],
+  ["GPM016","finding the sum of the first and last terms from two adjacent terms","If a，b，c form a geometric sequence, and a＝−3，b＝6, then a＋c＝（　　）",["A. −9","B. 9","C. −15","D. 15"],"C"],
+  ["GPM017","finding the ratio of the end terms from the middle term and an end term","If a，4，12 form a geometric sequence, then a/c＝（　　）",["A. 1/9","B. 1/3","C. 3","D. 9"],"A"],
+  ["GPM018","finding the ratio of terms from the middle term and an end term","If a，3，12 form a geometric sequence, then 3/a＝（　　）",["A. 1/4","B. 3/4","C. 4/3","D. 4"],"D"],
+  ["GPM019","finding the sum of the end terms from the geometric mean","If 6 is the geometric mean of 2 and x, then 2＋x＝（　　）",["A. 8","B. 12","C. 16","D. 20"],"D"],
+  ["GPM020","finding the ratio of the end terms from the geometric mean","If 4 is the geometric mean of x and 2, then x/2＝（　　）",["A. 2","B. 1/2","C. 4","D. 8"],"C"],
+  ["GPM021","the number of geometric means","If a，b，c form a geometric sequence, and ac＝49, then the number of real values of b is（　　）",["A. 0","B. 1","C. 49","D. 2"],"D"],
+  ["GPM022","product of the end terms and the positive middle term","If a，b，c form a geometric sequence, and ac＝36，b＞0, then b＝（　　）",["A. −6","B. ±6","C. 36","D. 6"],"D"],
+  ["GPM023","negative geometric mean of negative end terms","If b is the geometric mean of −2 and −8, and b＜0, then b＝（　　）",["A. −4","B. 4","C. −2","D. −8"],"A"],
+  ["GPM024","square of the middle term with fractional end terms","If 1/3，b，3 form a geometric sequence, then b²＝（　　）",["A. −1","B. ±1","C. 3","D. 1"],"D"],
+  ["GPM025","geometric mean involving algebraic expressions","If x，6，9x form a geometric sequence, then x＝（　　）",["A. 2","B. ±2","C. −2","D. ±3"],"B"],
+  ["GPM026","determining the geometric mean","Among the following triples of numbers, the one in which the second number is the geometric mean of the other two numbers is（　　）",["A. 2，6，18","B. 2，4，6","C. 1，2，3","D. 3，5，9"],"A"],
+  ["GPM027","finding the product of the end terms from the middle term","If a，−5，c form a geometric sequence, then ac＝（　　）",["A. 25","B. −25","C. 5","D. −5"],"A"],
+  ["GPM028","radical geometric mean","If a，b，c form a geometric sequence, and b²＝12, then ac＝（　　）",["A. 2√3","B. ±2√3","C. 144","D. 12"],"D"],
+  ["GPM029","the sum of the geometric means","The sum of the two real geometric means of 3 and 12 is（　　）",["A. 0","B. 6","C. −6","D. 12"],"A"],
+  ["GPM030","negative radical geometric mean","If b is the geometric mean of a and c, ac＝75 and b＜0, then b＝（　　）",["A. 5√3","B. −5√3","C. ±5√3","D. −75"],"B"]
+];
+
+/* Rehydrate into Application Data */
+const parseRaw = arr => arr.map(([id, kp, q, options, ans]) => ({id, kp, q, options, ans}));
+const DATA = {
+  general_seq: parseRaw(RAW_GSQ),
+  geom_props: parseRaw(RAW_GPS),
+  geom_sum: parseRaw(RAW_GSS),
+  arith_mean: parseRaw(RAW_APM),
+  arith_sum: parseRaw(RAW_ASS),
+  geom_mean: parseRaw(RAW_GPM)
+};
+
+/* ==================== 2. APPLICATION LOGIC ==================== */
+let currentTab = 'general_seq';
+let currentMode = 'practice';
+let isGridCollapsed = false;
+
+let userAnswers = {
+  general_seq: {},
+  geom_props: {},
+  geom_sum: {},
+  arith_mean: {},
+  arith_sum: {},
+  geom_mean: {}
+};
+
+let examSubmitted = {
+  general_seq: false,
+  geom_props: false,
+  geom_sum: false,
+  arith_mean: false,
+  arith_sum: false,
+  geom_mean: false
+};
+
+/* Timer State */
+let examDurationMinutes = 45;
+let examTimeRemaining = 45 * 60;
+let timerInterval = null;
+let isTimerRunning = false;
+
+const TAB_TITLES = {
+  general_seq: "General & Recurrence (数列通项/递推)",
+  geom_props: "Geom. General Term (等比通项)",
+  geom_sum: "Geom. Sum Sₙ (等比求和)",
+  arith_mean: "Arith. Mean (等差中项)",
+  arith_sum: "Arith. Sum Sₙ (等差求和)",
+  geom_mean: "Geom. Mean (等比中项)"
+};
+
+function switchTab(tabKey) {
+  currentTab = tabKey;
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  document.getElementById(`tab-${tabKey}`).classList.add('active');
+  document.getElementById('key-title').innerText = `Quick Answer Key (${TAB_TITLES[tabKey]})`;
+  renderApp();
+}
+
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('btn-practice').classList.toggle('active', mode === 'practice');
+  document.getElementById('btn-exam').classList.toggle('active', mode === 'exam');
+
+  document.getElementById('score-box').style.display = mode === 'exam' ? 'flex' : 'none';
+  document.getElementById('practice-acc-box').style.display = mode === 'practice' ? 'flex' : 'none';
+  document.getElementById('btn-submit-exam').style.display = mode === 'exam' ? 'inline-block' : 'none';
+
+  const timerBox = document.getElementById('timer-box');
+  if (mode === 'exam') {
+    timerBox.style.display = 'flex';
+    if (!isTimerRunning && !examSubmitted[currentTab]) {
+      startTimer();
+    }
+  } else {
+    timerBox.style.display = 'none';
+    pauseTimer();
+  }
+
+  renderApp();
+}
+
+/* Timer Control Functions */
+function startTimer() {
+  if (isTimerRunning) return;
+  isTimerRunning = true;
+  document.getElementById('timer-toggle-btn').innerText = '⏸';
+  timerInterval = setInterval(() => {
+    if (examTimeRemaining > 0) {
+      examTimeRemaining--;
+      updateTimerDisplay();
+    } else {
+      pauseTimer();
+      alert("Time is up! Your exam will now be submitted and graded.");
+      submitExam();
+    }
+  }, 1000);
+}
+
+function pauseTimer() {
+  if (!isTimerRunning) return;
+  clearInterval(timerInterval);
+  isTimerRunning = false;
+  const btn = document.getElementById('timer-toggle-btn');
+  if (btn) btn.innerText = '▶';
+}
+
+function toggleTimer() {
+  if (isTimerRunning) {
+    pauseTimer();
+  } else {
+    startTimer();
+  }
+}
+
+function updateTimerDisplay() {
+  const m = Math.floor(examTimeRemaining / 60);
+  const s = examTimeRemaining % 60;
+  const str = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  const el = document.getElementById('timer-display');
+  if (el) {
+    el.innerText = str;
+    el.style.color = examTimeRemaining <= 300 ? 'var(--danger)' : 'var(--slate-800)';
+  }
+}
+
+function ensureTimerModal() {
+  let backdrop = document.getElementById('timer-modal-backdrop');
+  if (backdrop) return backdrop;
+
+  backdrop = document.createElement('div');
+  backdrop.id = 'timer-modal-backdrop';
+  backdrop.className = 'timer-modal-backdrop';
+  backdrop.hidden = true;
+  backdrop.innerHTML = `
+    <section class="timer-modal" role="dialog" aria-modal="true" aria-labelledby="timer-modal-title">
+      <h2 id="timer-modal-title">Set exam timer</h2>
+      <p>Choose a duration from 1 to 300 minutes.</p>
+      <form id="timer-modal-form">
+        <label for="timer-duration-input">Duration (minutes)</label>
+        <input id="timer-duration-input" name="duration" type="number" min="1" max="300" step="1" required inputmode="numeric" />
+        <div id="timer-modal-error" class="timer-modal-error" role="alert" aria-live="polite"></div>
+        <div class="timer-modal-actions">
+          <button class="timer-modal-cancel" type="button" id="timer-modal-cancel">Cancel</button>
+          <button class="timer-modal-save" type="submit">Set timer</button>
+        </div>
+      </form>
+    </section>`;
+  document.body.appendChild(backdrop);
+
+  backdrop.addEventListener('click', function (event) {
+    if (event.target === backdrop) closeTimerModal();
+  });
+  document.getElementById('timer-modal-cancel').addEventListener('click', closeTimerModal);
+  document.getElementById('timer-modal-form').addEventListener('submit', applyTimerDuration);
+  return backdrop;
+}
+
+function promptTimerDuration() {
+  const backdrop = ensureTimerModal();
+  const input = document.getElementById('timer-duration-input');
+  const error = document.getElementById('timer-modal-error');
+  input.value = String(examDurationMinutes);
+  error.textContent = '';
+  backdrop.hidden = false;
+  window.setTimeout(() => { input.focus(); input.select(); }, 0);
+}
+
+function closeTimerModal() {
+  const backdrop = document.getElementById('timer-modal-backdrop');
+  if (backdrop) backdrop.hidden = true;
+}
+
+function applyTimerDuration(event) {
+  event.preventDefault();
+  const input = document.getElementById('timer-duration-input');
+  const error = document.getElementById('timer-modal-error');
+  const mins = Number(input.value);
+  if (!Number.isInteger(mins) || mins < 1 || mins > 300) {
+    error.textContent = 'Enter a whole number between 1 and 300.';
+    input.focus();
+    return;
+  }
+
+  examDurationMinutes = mins;
+  examTimeRemaining = mins * 60;
+  updateTimerDisplay();
+  closeTimerModal();
+  if (!isTimerRunning && currentMode === 'exam' && !examSubmitted[currentTab]) {
+    startTimer();
+  }
+}
+
+window.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') closeTimerModal();
+});
+
+function toggleNavigatorGrid() {
+  isGridCollapsed = !isGridCollapsed;
+  const navRow = document.getElementById('bar-nav-row');
+  const btn = document.getElementById('toggle-grid-btn');
+  navRow.classList.toggle('collapsed', isGridCollapsed);
+  btn.innerText = isGridCollapsed ? '▼ Show Grid' : '▲ Minimize';
+}
+
+function renderApp() {
+  renderNavigator();
+  renderQuestions();
+  renderAnswerKeyTable();
+  updateStats();
+}
+
+function renderNavigator() {
+  const container = document.getElementById('jump-grid');
+  container.innerHTML = '';
+  const questions = DATA[currentTab];
+  const answers = userAnswers[currentTab];
+  const isExamDone = currentMode === 'exam' && examSubmitted[currentTab];
+
+  questions.forEach((q, idx) => {
+    const node = document.createElement('a');
+    node.className = 'jump-node';
+    node.innerText = idx + 1;
+    node.href = `#q-${q.id}`;
+
+    const chosen = answers[q.id];
+    if (chosen) {
+      if (currentMode === 'practice' || isExamDone) {
+        node.classList.add(chosen === q.ans ? 'correct' : 'wrong');
+      } else {
+        node.classList.add('answered');
+      }
+    }
+
+    container.appendChild(node);
+  });
+}
+
+function renderQuestions() {
+  const container = document.getElementById('questions-container');
+  container.innerHTML = '';
+  const questions = DATA[currentTab];
+  const answers = userAnswers[currentTab];
+  const isExamDone = currentMode === 'exam' && examSubmitted[currentTab];
+
+  questions.forEach((item) => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.id = `q-${item.id}`;
+
+    const chosen = answers[item.id];
+
+    let optionsHtml = item.options.map(opt => {
+      const optLetter = opt.charAt(0);
+      let btnClasses = ['opt-btn'];
+
+      if (chosen === optLetter) {
+        btnClasses.push('selected');
+      }
+
+      if ((currentMode === 'practice' && chosen) || isExamDone) {
+        if (optLetter === item.ans) {
+          btnClasses.push('correct');
+        } else if (chosen === optLetter && chosen !== item.ans) {
+          btnClasses.push('wrong');
+        }
+      }
+
+      return `<button class="${btnClasses.join(' ')}" onclick="selectOption('${item.id}', '${optLetter}')">
+                ${opt}
+              </button>`;
+    }).join('');
+
+    let feedbackHtml = '';
+    if ((currentMode === 'practice' && chosen) || isExamDone) {
+      const isRight = chosen === item.ans;
+      feedbackHtml = `
+        <div class="q-feedback show ${isRight ? 'correct' : 'wrong'}">
+          ${isRight ? '✓ <strong>Correct!</strong>' : `✗ <strong>Incorrect.</strong> The correct answer is <strong>${item.ans}</strong>.`}
+        </div>
+      `;
+    }
+
+    card.innerHTML = `
+      <div class="q-header">
+        <span class="q-id">${item.id}</span>
+        <span class="q-tag">【Knowledge Point: ${item.kp}】</span>
+      </div>
+      <div class="q-text">${item.q}</div>
+      <div class="options-grid grid-2">${optionsHtml}</div>
+      ${feedbackHtml}
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+function selectOption(qId, letter) {
+  if (currentMode === 'exam' && examSubmitted[currentTab]) return;
+
+  userAnswers[currentTab][qId] = letter;
+  renderNavigator();
+  renderQuestions();
+  updateStats();
+}
+
+function updateStats() {
+  const total = DATA[currentTab].length;
+  const answers = userAnswers[currentTab];
+  const answeredCount = Object.keys(answers).length;
+
+  document.getElementById('stat-progress').innerText = `${answeredCount} / ${total}`;
+
+  let correctCount = 0;
+  for (let id in answers) {
+    const qObj = DATA[currentTab].find(q => q.id === id);
+    if (qObj && answers[id] === qObj.ans) {
+      correctCount++;
+    }
+  }
+
+  if (currentMode === 'practice') {
+    if (answeredCount === 0) {
+      document.getElementById('stat-accuracy').innerText = '--';
+    } else {
+      const rate = Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('stat-accuracy').innerText = `${rate}% (${correctCount}/${answeredCount})`;
+    }
+  } else {
+    if (examSubmitted[currentTab]) {
+      const score = Math.round((correctCount / total) * 100);
+      document.getElementById('stat-score').innerText = `${score}% (${correctCount}/${total})`;
+    } else {
+      document.getElementById('stat-score').innerText = `Not Graded`;
+    }
+  }
+}
+
+function submitExam() {
+  examSubmitted[currentTab] = true;
+  pauseTimer();
+  renderApp();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function resetCurrentTab() {
+  if (confirm(`Reset all answers for the current topic?`)) {
+    userAnswers[currentTab] = {};
+    examSubmitted[currentTab] = false;
+    examTimeRemaining = examDurationMinutes * 60;
+    updateTimerDisplay();
+    if (currentMode === 'exam') startTimer();
+    renderApp();
+  }
+}
+
+function toggleAnswerKey() {
+  const content = document.getElementById('key-content');
+  const arrow = document.getElementById('key-arrow');
+  const isOpen = content.classList.toggle('open');
+  arrow.innerText = isOpen ? '▲' : '▼';
+}
+
+function renderAnswerKeyTable() {
+  const table = document.getElementById('key-table');
+  const questions = DATA[currentTab];
+  const numRows = Math.ceil(questions.length / 10);
+
+  let headerHtml = '<tr>';
+  for (let i = 0; i < 10; i++) {
+    headerHtml += `<th>Q#</th><th>Ans</th>`;
+  }
+  headerHtml += '</tr>';
+
+  let bodyHtml = '';
+  for (let row = 0; row < numRows; row++) {
+    bodyHtml += '<tr>';
+    for (let col = 0; col < 10; col++) {
+      const index = row * 10 + col;
+      if (index < questions.length) {
+        const q = questions[index];
+        bodyHtml += `<td><strong>${q.id}</strong></td><td class="correct-highlight">${q.ans}</td>`;
+      } else {
+        bodyHtml += `<td></td><td></td>`;
+      }
+    }
+    bodyHtml += '</tr>';
+  }
+
+  table.innerHTML = `<thead>${headerHtml}</thead><tbody>${bodyHtml}</tbody>`;
+}
+
+// Initial Run
+updateTimerDisplay();
+renderApp();
+</script>
+</body>
+</html>
